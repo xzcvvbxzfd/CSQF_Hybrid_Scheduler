@@ -8,11 +8,11 @@ It implements a dynamic collaborative scheduling algorithm for Time-Sensitive Ne
 
 ## Key Features
 
-* [cite_start]**Internet2 Topology Model**: Accurate reconstruction of the WAN topology (16 nodes, heterogeneous links) as described in the paper [cite: 242-248].
-* [cite_start]**Algorithm 1 (TT Flows)**: Deterministic scheduling using ILP with Fixed Resource Blocks (FB) [cite: 177-178].
-* [cite_start]**Algorithm 2 (AVB Flows)**: Elastic scheduling with Dynamic Cycle Scaling and Sliding Window Preemption [cite: 202-203].
-* [cite_start]**GPU Acceleration**: Parallel resource conflict detection using **Numba/CUDA** to handle large-scale traffic analysis [cite: 234-241].
-* *Note: Includes automatic CPU fallback if no NVIDIA GPU is detected.*
+**Internet2 Topology Model**: Accurate reconstruction of the WAN topology (16 nodes, heterogeneous links) as described in the paper.
+**Algorithm 1 (TT Flows)**: Deterministic scheduling using ILP with Fixed Resource Blocks (FB).
+**Algorithm 2 (AVB Flows)**: Elastic scheduling with Dynamic Cycle Scaling and Sliding Window Preemption.
+**GPU Acceleration**: Parallel resource conflict detection using **Numba/CUDA** to handle large-scale traffic analysis.
+Note: Includes automatic CPU fallback if no NVIDIA GPU is detected.
 
 ## Repository Structure
 
