@@ -25,3 +25,4 @@ CSQF_Hybrid_Scheduler/
 ├── avb_scheduler.py        # Dynamic Cycle AVB flow scheduler
 ├── gpu_kernels.py          # CUDA kernels for parallel conflict detection
 └── requirements.txt        # Python dependencies
+The code segments provided above represent the core implementation of the proposed method. For the complete source code artifact and experimental data required for full reproducibility, please contact the author via email at: liu_xiaokai@bistu.edu.cn.
