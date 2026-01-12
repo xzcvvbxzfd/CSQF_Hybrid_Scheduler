@@ -25,8 +25,8 @@ As described in **Section 4.1** of the paper, the proposed method leverages GPU 
 ### Implementation Details
 The GPU acceleration logic is encapsulated in `gpu_kernels.py` and follows the parallelization strategy outlined in the manuscript:
 
-1.  **Task Partitioning**: The conflict detection for AVB flows is decoupled from the ILP solving for TT flows. [cite_start]Each CUDA thread processes the resource validation for a single AVB flow independently [cite: 235-236].
-2.  **Data Parallelism**: The global resource reservation matrix (Dimensions: $Links \times Cycles \times Queues$) is transferred to the GPU memory. [cite_start]Threads access this shared data structure to check availability within the sliding window [cite: 237-238].
+1.  **Task Partitioning**: The conflict detection for AVB flows is decoupled from the ILP solving for TT flows. Each CUDA thread processes the resource validation for a single AVB flow independently.
+2.  **Data Parallelism**: The global resource reservation matrix (Dimensions: $Links \times Cycles \times Queues$) is transferred to the GPU memory. Threads access this shared data structure to check availability within the sliding window.
 3.  **Automatic Fallback**: To ensure reproducibility across different hardware environments, the code includes an automatic check (`cuda.is_available()`). If no NVIDIA GPU is detected, the system gracefully degrades to a CPU-based serial execution mode.
 
 ### How to Verify
@@ -42,18 +42,18 @@ Running the `main.py` script will perform a simulation that validates the key pe
 
 ### 1. Hybrid Traffic Scheduling Performance (Fig. 6 & Fig. 7)
 The simulation generates a mixed traffic scenario (TT/AVB) to demonstrate the algorithm's effectiveness:
-* [cite_start]**TT Flows**: The algorithm guarantees **100% scheduling success rate** for Time-Triggered flows due to the strict priority of Fixed Resource Blocks (FB), matching the results in **Table 3**[cite: 307].
-* [cite_start]**AVB Flows**: Under heavy load scenarios (e.g., 3000 flows), the proposed Dynamic Cycle algorithm maintains a significantly higher success rate (~75.6%) compared to static strategies[cite: 278].
+**TT Flows**: The algorithm guarantees **100% scheduling success rate** for Time-Triggered flows due to the strict priority of Fixed Resource Blocks (FB), matching the results in **Table 3**.
+**AVB Flows**: Under heavy load scenarios (e.g., 3000 flows), the proposed Dynamic Cycle algorithm maintains a significantly higher success rate (~75.6%) compared to static strategies.
 
 ### 2. Resource Fragmentation Optimization (Fig. 8)
 The console output tracks the dynamic adjustment of cycle lengths. You will observe:
-* **Light Load**: The cycle length compresses (e.g., `< 0.125ms`) to merge scattered resource blocks.
-* [cite_start]**Fragmentation Rate**: The dynamic adjustment reduces the Resource Fragmentation Rate (RFR) to approximately **5%-12%**, compared to >25% in static approaches [cite: 301-303].
+**Light Load**: The cycle length compresses (e.g., `< 0.125ms`) to merge scattered resource blocks.
+**Fragmentation Rate**: The dynamic adjustment reduces the Resource Fragmentation Rate (RFR) to approximately **5%-12%**, compared to >25% in static approaches.
 
 ### 3. Comparison with State-of-the-Art (Table 6)
 The simulation outputs key metrics that align with the comparative analysis in the paper:
-* [cite_start]**Jitter Control**: TT flow jitter is strictly bounded (Standard Deviation < 1.5μs)[cite: 324].
-* [cite_start]**Efficiency**: The GPU-accelerated implementation demonstrates the scalability required for WANs, achieving scheduling times significantly lower than traditional ILP-only methods[cite: 226].
+**Jitter Control**: TT flow jitter is strictly bounded (Standard Deviation < 1.5μs).
+**Efficiency**: The GPU-accelerated implementation demonstrates the scalability required for WANs, achieving scheduling times significantly lower than traditional ILP-only methods.
 
 ## Repository Structure
 ```text
