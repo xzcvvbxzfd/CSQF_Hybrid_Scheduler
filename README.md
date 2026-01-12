@@ -14,6 +14,10 @@ It implements a dynamic collaborative scheduling algorithm for Time-Sensitive Ne
 **GPU Acceleration**: Parallel resource conflict detection using **Numba/CUDA** to handle large-scale traffic analysis.
 Note: Includes automatic CPU fallback if no NVIDIA GPU is detected.
 
+## Note on Reproducibility
+
+The code segments provided above represent the core implementation of the proposed method. For the complete source code artifact and experimental data required for full reproducibility, please contact the author via email at: liu_xiaokai@bistu.edu.cn.
+
 ## Repository Structure
 ```text
 CSQF_Hybrid_Scheduler/
@@ -25,7 +29,5 @@ CSQF_Hybrid_Scheduler/
 ├── gpu_kernels.py          # CUDA kernels for parallel conflict detection
 └── requirements.txt        # Python dependencies
 
-## Note on Reproducibility
 
-The code segments provided above represent the core implementation of the proposed method. For the complete source code artifact and experimental data required for full reproducibility, please contact the author via email at: liu_xiaokai@bistu.edu.cn.
 
