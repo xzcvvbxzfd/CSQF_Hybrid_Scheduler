@@ -15,7 +15,6 @@ It implements a dynamic collaborative scheduling algorithm for Time-Sensitive Ne
 Note: Includes automatic CPU fallback if no NVIDIA GPU is detected.
 
 ## Repository Structure
-
 ```text
 CSQF_Hybrid_Scheduler/
 ├── main.py                 # Entry point for the simulation
@@ -25,4 +24,8 @@ CSQF_Hybrid_Scheduler/
 ├── avb_scheduler.py        # Dynamic Cycle AVB flow scheduler
 ├── gpu_kernels.py          # CUDA kernels for parallel conflict detection
 └── requirements.txt        # Python dependencies
+
+## Note on Reproducibility
+
 The code segments provided above represent the core implementation of the proposed method. For the complete source code artifact and experimental data required for full reproducibility, please contact the author via email at: liu_xiaokai@bistu.edu.cn.
+
